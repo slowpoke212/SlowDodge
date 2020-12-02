@@ -13,12 +13,13 @@ var w = 10;
 var loop;
 var xmove = 0;
 var rc;
+var sped;
 function entity (width, height, color, x, y) {
     this.width = width;
     this.height = height;
     this.speedX = 0;
-    this.hi = 0;
-    this.speedY = getRandomInt(5);    
+    this.fall = 0;
+    this.speedY = getRandomInt2(1, 5);    
     this.x = x;
     this.y = y;   
   this.newPos = function() {
@@ -142,7 +143,6 @@ function draw() {
     xspeed = 0
   }
   hi += 1
-  hi += getRandomInt(5)
   
   for (i = 0; i < myObstacles.length; i += 1) {
   if (myObstacles[i].crashWith(x, y, 10, 10)) {
@@ -156,8 +156,12 @@ function draw() {
    for (i = 0; i < myObstacles.length; i += 1) {
      xmove = getRandomInt2(-5, 5)
     myObstacles[i].x += xmove;
-    myObstacles[i].hi += myObstacles[i].Yspeed
-    myObstacles[i].y = myObstacles[i].hi;
+    
+    sped = getRandomInt2(1, 30)
+    hi += sped
+    myObstacles[i].fall += myObstacles[i].Yspeed
+    myObstacles[i].y = hi;
+    hi -= sped
     myObstacles[i].update();
     xmove = 0
   }
