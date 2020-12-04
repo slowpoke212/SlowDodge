@@ -18,7 +18,7 @@ function entity (width, height, color, x, y) {
     this.width = width;
     this.height = height;
     this.speedX = 0;
-    this.fall = 0;
+    this.fall = getRandomint2(1, 5)
     this.speedY = getRandomInt2(1, 5);    
     this.x = x;
     this.y = y;   
@@ -158,10 +158,9 @@ function draw() {
     myObstacles[i].x += xmove;
     
     sped = getRandomInt2(1, 30)
-    hi += sped
-    myObstacles[i].fall += myObstacles[i].Yspeed
+    hi += myObstacles[i].fall
     myObstacles[i].y = hi;
-    hi -= sped
+    hi -= myObstacles.fall
     myObstacles[i].update();
     xmove = 0
   }
