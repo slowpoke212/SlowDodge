@@ -55,26 +55,26 @@ function updatetext() {
 document.addEventListener('keypress', function (e) {
   
   if (e.code === "KeyW") {
-    yspeed -= 1
+    yspeed = -1
   
 
   }
 });
 document.addEventListener('keypress', function (e) {
   if (e.code === "KeyS") {
-      yspeed += 1
+      yspeed = 1
   }
 });
 document.addEventListener('keypress', function (e) {
   if (e.code === "KeyD") {
-      xspeed += 1
+      xspeed = 1
 
 
   }
 });
 document.addEventListener('keypress', function (e) {
   if (e.code === "KeyA") {
-      xspeed -= 1
+      xspeed = -1
 
 
   }
